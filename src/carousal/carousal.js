@@ -71,7 +71,8 @@ function SwipeableTextMobileStepper() {
           bgcolor: 'background.default',
         }}
       >
-        <Typography>{images[activeStep].label}</Typography>
+        <div style={{textAlign: "center"}}>
+        <Typography>{images[activeStep].label}</Typography></div>
       </Paper>
       <AutoPlaySwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
@@ -85,10 +86,12 @@ function SwipeableTextMobileStepper() {
               <Box
                 component="img"
                 sx={{
-                  height: 255,
+                  height: 300,
                   display: 'block',
-                  maxWidth: "100%",
+                  maxWidth: "80%",
                   overflow: 'hidden',
+                  margin: 'auto',
+                  backgroundColor: 'gray',
                   width: '100%',
                 }}
                 src={step.imgPath}
