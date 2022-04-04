@@ -225,15 +225,15 @@
         margin-right: 5px;
         text-align: center;
     }
-    #navbar-main{
+    /* #navbar-main{
         height: 40px;
-    }
+    } */
     #navbar-main a{
         /* padding: 0px; */
         font-size: 12px;
         text-align: center;
         border: 1px solid white;
-        height: 100%;
+        height: fit-content;
         /* width: fit-content;
         text-align: center;
         align-items: center; */
