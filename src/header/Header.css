@@ -197,9 +197,6 @@
         width: 100px;
         object-fit: scale-down;
     }
-    #contact-id{
-        display: none;
-    }
     #header-text{
         margin-right: 5%;
     }
@@ -225,18 +222,12 @@
         margin-right: 5px;
         text-align: center;
     }
-    /* #navbar-main{
-        height: 40px;
-    } */
     #navbar-main a{
         /* padding: 0px; */
+
         font-size: 12px;
         text-align: center;
         border: 1px solid white;
-        height: fit-content;
-        /* width: fit-content;
-        text-align: center;
-        align-items: center; */
     }
     #navbar-main .main{
         padding: 5.5px;

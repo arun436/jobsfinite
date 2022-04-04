@@ -31,7 +31,7 @@ const Corporate = () => {
     return (
         <div>
             <Header />
-            <h2 style={{textAlign: "center"}}>Private Jobs</h2>
+            <h2 style={{textAlign: "center"}}>IT Jobs</h2>
             <div id="govtpage-main-outside">
                         <div id="govtpage-main">
                         <div className='state'>For Freshers</div>

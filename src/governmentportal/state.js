@@ -89,7 +89,7 @@ const StateGovernment = () => {
                     </table>
                 </div>
                 <div id="govtpage-main">
-                    <div className='state'>Arunchal Pradesh</div>
+                    <div className='state'>Arunachal Pradesh</div>
                     <table className='table' id='Arunachal'>
                         <thead>
                             <tr>

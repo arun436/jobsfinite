@@ -287,7 +287,7 @@ function Header() {
                 <a href="" className="hide" id="contact-id">Contact us</a>
                 <a href="/centralgovtPortal" className="govt-btn hide link" id="central-id">Central Government Jobs</a>
                 <a href="/stategovtPortal" id="state-id">State Government Jobs</a>
-                <a href="/privatePortal" className="hide" id="private-id">Private Jobs</a>
+                <a href="/privatePortal" className="hide" id="private-id">IT Jobs</a>
             </div>
         </div>
     )
