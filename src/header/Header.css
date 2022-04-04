@@ -234,9 +234,9 @@
         text-align: center;
         border: 1px solid white;
         height: 100%;
-        width: fit-content;
+        /* width: fit-content;
         text-align: center;
-        align-items: center;
+        align-items: center; */
     }
     #navbar-main .main{
         padding: 5.5px;
