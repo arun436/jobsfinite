@@ -54,7 +54,7 @@ const Corporate = () => {
                                     <td>{item.qualification}</td>
                                     <td>{item.postLastDateString}</td>
                                     <td><a href='' onClick={() => {
-                                            navigate("/privatePortal/job", {state: item});
+                                            navigate(`/privatePortal/${item.id}`, {state: item});
                                         }}>Next</a>
                                         </td>
                                 </tr>
@@ -83,7 +83,7 @@ const Corporate = () => {
                                     <td>{item.experience}</td>
                                     <td>{item.postLastDateString}</td>
                                     <td><a href='' onClick={() => {
-                                            navigate("/privatePortal/job", {state: item});
+                                            navigate(`/privatePortal/${item.id}`, {state: item});
                                         }}>Next</a>
                                         </td>
                                 </tr>

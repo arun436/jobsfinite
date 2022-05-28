@@ -65,15 +65,15 @@ function Header() {
             document.getElementById("home-id").style.color = "black";
             document.getElementById("header-text").style.display = "none"
         }
-        if(window.location.pathname === "/centralgovtPortal" || window.location.pathname === "/centralgovtPortal/job"){
+        if(window.location.pathname === "/centralgovtPortal" || window.location.pathname === "/centralgovtPortal"){
             document.getElementById("central-id").style.background = "white";
             document.getElementById("central-id").style.color = "black"
         }
-        if(window.location.pathname === "/stategovtPortal" || window.location.pathname === "/stategovtportal/job"){
-            document.getElementById("state-id").style.background = "white";
-            document.getElementById("state-id").style.color = "black"
+        if(window.location.pathname === "/stategovtPortal" || window.location.pathname === "/stategovtportal"){
+            document.getElementById("central-id").style.background = "white";
+            document.getElementById("central-id").style.color = "black"
         }
-        if(window.location.pathname === "/privatePortal" || window.location.pathname === "/privatePortal/job"){
+        if(window.location.pathname === "/privatePortal" || window.location.pathname === "/privatePortal"){
             document.getElementById("private-id").style.background = "white";
             document.getElementById("private-id").style.color = "black"
         }
@@ -108,7 +108,7 @@ function Header() {
             let name = mail.substring(0, mail.lastIndexOf("@"));
             
             // If they enter mail in private portal page and click on subscribe this if will be executed
-            if(window.location.pathname === "/privatePortal" || window.location.pathname === "/privatePortal/job"){
+            if(window.location.pathname === "/privatePortal" || window.location.pathname === "/privatePortal/:id"){
                 axios.post("https://jobs-finite.herokuapp.com/savePrivateJobSubscriber",{emailId: mail})
                     .then((res) => {
                         setOpenMsg(res.data);
@@ -236,7 +236,7 @@ function Header() {
                                         primary25: 'gray',
                                     },
                                 })} /> : null}
-                            {window.location.pathname === "/stategovtPortal" ? <Select
+                            {window.location.pathname === "/stategovtportal" ? <Select
                                 theme={(theme) => ({
                                     ...theme,
                                     borderRadius: 0,
@@ -265,7 +265,7 @@ function Header() {
                                         primary25: 'gray',
                                     },
                                 })} /> : null}
-                            {window.location.pathname === "/stategovtPortal" ? <Select
+                            {window.location.pathname === "/stategovtportal" ? <Select
                                 theme={(theme) => ({
                                     ...theme,
                                     borderRadius: 0,
@@ -284,9 +284,7 @@ function Header() {
             </div> */}
             <div id="navbar-main">
                 <a href="/" className="hide main" id="home-id">Home</a>
-                <a href="" className="hide" id="contact-id">Contact us</a>
-                <a href="/centralgovtPortal" className="govt-btn hide link" id="central-id">Central Government Jobs</a>
-                <a href="/stategovtPortal" id="state-id">State Government Jobs</a>
+                <a href="/governmentportal" className="govt-btn hide link" id="central-id">Government Jobs</a>
                 <a href="/privatePortal" className="hide" id="private-id">IT Jobs</a>
             </div>
         </div>

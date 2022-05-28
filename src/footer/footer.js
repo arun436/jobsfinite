@@ -29,7 +29,7 @@ const Footer = () => {
                             <h4>Navigate</h4>
                             <ul>
                                 <li><a href="/">Home</a></li>
-                                <li><a href="/stategovtPortal">State Government Jobs</a></li>
+                                <li><a href="/stategovtportal">State Government Jobs</a></li>
                                 <li><a href="/centralgovtPortal">Central Government Jobs</a></li>
                                 <li><a href="/privatePortal">IT Jobs</a></li>
                             </ul>

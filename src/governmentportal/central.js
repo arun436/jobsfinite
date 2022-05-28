@@ -21,7 +21,7 @@ const CentralGovernment = () => {
 
     const navigate = useNavigate();
     const fetchData = () => {
-        // document.getElementById('bank-body').innerHTML = '';
+        document.getElementById('bank-body').innerHTML = '';
         axios.get("https://jobs-finite.herokuapp.com/getAllCentralGovtPost")
             .then(res => {
                 setData([...res.data])
@@ -57,7 +57,7 @@ const CentralGovernment = () => {
                                         <td>{item.qualification}</td>
                                         <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
-                                            navigate("/centralgovtPortal/job", {state: item});
+                                            navigate(`/centralgovtPortal/${item.id}`, {state: item});
                                         }}>Get Details</a>
                                         </td>
                                     </tr>
@@ -89,7 +89,7 @@ const CentralGovernment = () => {
                                         <td>{item.qualification}</td>
                                         <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
-                                            navigate("/centralgovtPortal/job", {state: item});
+                                            navigate(`/centralgovtPortal/${item.id}`, {state: item});
                                         }}>Get Details</a>
                                         </td>
                                     </tr>
@@ -121,7 +121,7 @@ const CentralGovernment = () => {
                                         <td>{item.qualification}</td>
                                         <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
-                                            navigate("/centralgovtPortal/job", {state: item});
+                                            navigate(`/centralgovtPortal/${item.id}`, {state: item});
                                         }}>Get Details</a>
                                         </td>
                                     </tr>
@@ -153,7 +153,7 @@ const CentralGovernment = () => {
                                         <td>{item.qualification}</td>
                                         <td>{item.postLastDateString}</td>
                                         <td><a href='' onClick={() => {
-                                            navigate("/centralgovtPortal/job", {state: item});
+                                            navigate(`/centralgovtPortal/${item.id}`, {state: item});
                                         }}>Get Details</a>
                                         </td>
                                     </tr>
