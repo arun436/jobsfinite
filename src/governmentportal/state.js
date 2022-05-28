@@ -25,7 +25,7 @@ const StateGovernment = () => {
     return (
         <div>
             <Header />
-            <h2 style={{ textAlign: "center" }}>State Government Jobs</h2>
+            <h2 style={{ textAlign: "center", color: "#d3212d" }}>State Government Jobs</h2>
             <div id="govtpage-main-outside">
                 <div id="govtpage-main">
                     <div className='state'>Andaman and Nicobar Islands</div>
@@ -118,7 +118,7 @@ const StateGovernment = () => {
                         </tbody>
                     </table>
                 </div>
-                <div id="govtpage-main">
+                <div id="govtpage-main" className="gap">
                     <div className='state'>Assam</div>
                     <table className='table' id='Assam'>
                         <thead>
@@ -149,7 +149,7 @@ const StateGovernment = () => {
                     </table>
                 </div>
                 <div id="govtpage-main">
-                    <div className='state'>Bihar</div>
+                    <div className='state gap-below'>Bihar</div>
                     <table className='table' id='Bihar'>
                         <thead>
                             <tr>
@@ -238,7 +238,7 @@ const StateGovernment = () => {
                         </tbody>
                     </table>
                 </div>
-                <div id="govtpage-main">
+                <div id="govtpage-main" className="gap">
                     <div className='state'>Gujarat</div>
                     <table className='table' id='Gujarat'>
                         <thead>
@@ -269,7 +269,7 @@ const StateGovernment = () => {
                     </table>
                 </div>
                 <div id="govtpage-main">
-                    <div className='state'>Haryana</div>
+                    <div className='state gap-below'>Haryana</div>
                     <table className='table' id='Haryana'>
                         <thead>
                             <tr>
@@ -358,7 +358,7 @@ const StateGovernment = () => {
                         </tbody>
                     </table>
                 </div>
-                <div id="govtpage-main">
+                <div id="govtpage-main" className="gap">
                     <div className='state'>Karnataka</div>
                     <table className='table' id='Karnataka'>
                         <thead>
@@ -389,7 +389,7 @@ const StateGovernment = () => {
                     </table>
                 </div>
                 <div id="govtpage-main">
-                    <div className='state'>Kerala</div>
+                    <div className='state gap-below'>Kerala</div>
                     <table className='table' id='Kerala'>
                         <thead>
                             <tr>
@@ -478,7 +478,7 @@ const StateGovernment = () => {
                         </tbody>
                     </table>
                 </div>
-                <div id="govtpage-main">
+                <div id="govtpage-main" className="gap">
                     <div className='state'>Manipur</div>
                     <table className='table' id='Manipur'>
                         <thead>
@@ -509,7 +509,7 @@ const StateGovernment = () => {
                     </table>
                 </div>
                 <div id="govtpage-main">
-                    <div className='state'>Meghalaya</div>
+                    <div className='state gap-below'>Meghalaya</div>
                     <table className='table' id='Meghalaya'>
                         <thead>
                             <tr>
@@ -568,7 +568,7 @@ const StateGovernment = () => {
                         </tbody>
                     </table>
                 </div>
-                   <div id="govtpage-main">
+                   <div id="govtpage-main" className="gap">
                     <div className='state'>Nagaland</div>
                     <table className='table' id='Nagaland'>
                         <thead>
@@ -599,7 +599,7 @@ const StateGovernment = () => {
                     </table>
                 </div>
                    <div id="govtpage-main">
-                    <div className='state'>Odisha</div>
+                    <div className='state gap-below'>Odisha</div>
                     <table className='table' id='Odisha'>
                         <thead>
                             <tr>
@@ -658,7 +658,7 @@ const StateGovernment = () => {
                         </tbody>
                     </table>
                 </div>
-                   <div id="govtpage-main">
+                   <div id="govtpage-main" className="gap">
                     <div className='state'>Rajasthan</div>
                     <table className='table' id='Rajasthan'>
                         <thead>
@@ -689,7 +689,7 @@ const StateGovernment = () => {
                     </table>
                 </div>
                    <div id="govtpage-main">
-                    <div className='state'>Sikkim</div>
+                    <div className='state gap-below'>Sikkim</div>
                     <table className='table' id='Sikkim'>
                         <thead>
                             <tr>
@@ -778,7 +778,7 @@ const StateGovernment = () => {
                         </tbody>
                     </table>
                 </div>
-                   <div id="govtpage-main">
+                   <div id="govtpage-main" className="gap">
                     <div className='state'>Tripura</div>
                     <table className='table' id='Tripura'>
                         <thead>
@@ -809,7 +809,7 @@ const StateGovernment = () => {
                     </table>
                 </div>
                    <div id="govtpage-main">
-                    <div className='state'>Uttar Pradesh</div>
+                    <div className='state gap-below'>Uttar Pradesh</div>
                     <table className='table' id='Uttar'>
                         <thead>
                             <tr>

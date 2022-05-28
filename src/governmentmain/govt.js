@@ -17,13 +17,13 @@ function Govt(){
                     <div className="hovering-effect" onClick={()=> window.location = "/centralgovtPortal"} >
                         <div className="zoom">
                             <img src={govtLogo} ></img>
-                            <b className="job-category" style={{color: "#CB1515"}}>Central Government Jobs</b>
+                            <b className="job-category-govt" style={{color: "#CB1515"}}>Central Government Jobs</b>
                         </div>
                     </div>
                     <div className="hovering-effect" onClick={()=>window.location = "/stategovtportal"}>
                         <div className="zoom">
                             <img src={transparentPrivateLogo} ></img>
-                            <b className="job-category" style={{color: "royalblue"}}>State Government Jobs</b>
+                            <b className="job-category-govt" style={{color: "royalblue"}}>State Government Jobs</b>
                         </div>
                     </div>
                 </div>

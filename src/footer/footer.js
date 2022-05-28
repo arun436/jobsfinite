@@ -12,14 +12,13 @@ const Footer = () => {
                             <h4>company</h4>
                             <ul>
                                 <li><a href="#">about us</a></li>
-                                <li><a href="#">our services</a></li>
+                                <li><a href="/excelUpload/Admin">Admin</a></li>
                                 <li><a href="#">privacy policy</a></li>
                             </ul>
                         </div>
                         <div className="footer-col">
                             <h4>get help</h4>
                             <ul>
-                                <li><a href="#">FAQ</a></li>
                                 <li><a href="#">Contact us</a></li>
                                 <li><a href="#">Feedback</a></li>
                                 <li><textarea type="text" style={{marginRight: "3px"}}></textarea><button id='submit' style={{display:"block", verticalAlign: "center", color: "gray", cursor: "pointer"}}>Submit</button></li>

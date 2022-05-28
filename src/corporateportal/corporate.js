@@ -31,9 +31,9 @@ const Corporate = () => {
     return (
         <div>
             <Header />
-            <h2 style={{textAlign: "center"}}>IT Jobs</h2>
+            <h2 style={{textAlign: "center", color: "#d3212d"}}>IT Jobs</h2>
             <div id="govtpage-main-outside">
-                        <div id="govtpage-main">
+                        <div id="govtpage-main" className="gap">
                         <div className='state'>For Freshers</div>
                             <table className='table'>
                                 <thead>
@@ -62,7 +62,7 @@ const Corporate = () => {
                                 </tbody>
                             </table>
                         </div>
-                        <div id="govtpage-main">
+                        <div id="govtpage-main" style={{paddingTop: "20px"}}>
                         <div className='state'>For Experienced</div>
                             <table className='table'>
                                 <thead>

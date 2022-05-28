@@ -11,3 +11,8 @@
     background: white;
     padding-bottom: 20px;
 }
+ @media screen and (max-width: 450px) {
+    #govtpage-main-outside > .gap {
+        margin-bottom: 200px;
+    }
+ }

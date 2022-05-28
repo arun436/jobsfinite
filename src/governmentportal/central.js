@@ -34,7 +34,7 @@ const CentralGovernment = () => {
             <div>
             </div>
 
-            <h2 style={{textAlign: "center"}}>Central Government Jobs</h2>
+            <h2 style={{textAlign: "center", color: "#d3212d"}}>Central Government Jobs</h2>
             <div id="govtpage-main-outside">
                 <div id="govtpage-main">
                     <div className='state'>UPSC</div>
@@ -66,7 +66,7 @@ const CentralGovernment = () => {
                         </tbody>
                     </table>
                 </div>
-                <div id="govtpage-main">
+                <div id="govtpage-main" className="gap">
                 <div className='state'>Banking</div>
                     <table className='table' id='bank-table'>
                         <thead>
@@ -99,7 +99,7 @@ const CentralGovernment = () => {
                     </table>
                 </div>
                 <div id="govtpage-main">
-                <div className='state'>Railways</div>
+                <div className='state gap-below'>Railways</div>
                     <table className='table' id='rail-table'>
                         <thead>
                             <tr>

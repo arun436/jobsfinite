@@ -9,6 +9,7 @@ import { useEffect } from 'react';
 import { axios } from "axios";
 import OnlyJob from "./corporateportal/onlyJob/onlyJob.js"
 import Govt from "./governmentmain/govt.js"
+import Excel from "./Admin/excelUpload"
 
 function App() {
 
@@ -30,6 +31,8 @@ function App() {
           <Route exact path="/privatePortal" element={<Corporate/>}></Route>
           
           <Route path="/privatePortal/:id" element={<OnlyJob/>}></Route>
+
+          <Route path="/excelUpload/Admin" element={<Excel/>}></Route>
 
           </Routes>
      </Router> 

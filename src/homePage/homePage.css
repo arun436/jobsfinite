@@ -91,6 +91,9 @@
     #homepage-main .hovering-effect .job-category{
         font-size: medium;
     }
+    #homepage-main .hovering-effect .job-category-govt{
+        font-size: small;
+    }
     .zoom img {
         width: 100%;
         height: 89%;

@@ -13,8 +13,8 @@ function DashBoard(){
         <div style={{marginTop:"40px"}}>
           <SwipeableTextMobileStepper/>
         </div>
-        <HomePage/>
-        <Footer />
+            <HomePage/>
+            <Footer />
         </>
     )
 }
