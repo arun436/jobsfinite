@@ -13,6 +13,10 @@
 	text-align: center;
 	margin-top: 50px;
 }
+.select-upload{
+	text-align: center;
+	margin-top: 50px;
+}
 .btn-upload > button{
   padding: 5px 5px;
   /*line-height: 1.25;*/
