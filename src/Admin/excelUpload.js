@@ -28,7 +28,7 @@ const Excel = () => {
 	const uploadFile = () => {
 		console.log(formData,select)
 		axios.post("https://jobs-finite.herokuapp.com/excelUpload", {
-			      method: "POST",
+			      method: "post",
 			      body: {file: formData, fileType: select}
 			    })
 			.then((res) => console.log(res))

@@ -12,7 +12,7 @@ import Snackbar from "@mui/material/Snackbar";
 
 
 
-function Header() {
+function Header(props) {
 
     const [boo, setBool] = useState(true);
     const [categories, setCategories] = useState([]);
@@ -22,6 +22,7 @@ function Header() {
     const [openMsg, setOpenMsg] = useState("");
     const [fail, setFail] = useState(false);
     const [failMsg, setFailMsg] = useState("");
+
     const centralData = [
         {
             value: 1,
@@ -111,10 +112,17 @@ function Header() {
             
             // If they enter mail in private portal page and click on subscribe this if will be executed
             if(window.location.pathname === "/privatePortal" || window.location.pathname === "/privatePortal/:id"){
+                // axios.post("https://jobs-finite.herokuapp.com/savePrivateJobSubscriber",{emailId: mail})
                 axios.post("https://jobs-finite.herokuapp.com/savePrivateJobSubscriber",{emailId: mail})
+
                     .then((res) => {
-                        setOpenMsg(res.data);
-                        handleClick();
+                        if(res.status === 200){
+                            setOpenMsg(res.data);
+                            handleClick();
+                        } else if(res.status === 201) {
+                            props.handleSignIn(true);
+                            props.handleEmail(mail);
+                        }
                     })
                         .catch((e) => {
                             // console.log(mail)

@@ -2,7 +2,7 @@ import React from 'react';
 import "./footer.css"
 import { FaFacebook,FaInstagram,FaTwitter,FaLinkedin } from "react-icons/fa"
 
-const Footer = () => {
+const Footer = (props) => {
     return (
         <div>
             <footer className="footer">
@@ -12,7 +12,7 @@ const Footer = () => {
                             <h4>company</h4>
                             <ul>
                                 <li><a href="#">about us</a></li>
-                                <li><a href="/excelUpload/Admin">Admin</a></li>
+                                { window.location.pathname === "/privatePortal" && props.value ? <li><a href="/excelUpload/Admin">Admin</a></li> : null }
                                 <li><a href="#">privacy policy</a></li>
                             </ul>
                         </div>

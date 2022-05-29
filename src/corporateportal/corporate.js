@@ -11,16 +11,34 @@ import Select from "react-select";
 // import data from './datajobs.json';
 import Job from '../governmentportal/job';
 import axios from 'axios'
+import Modal from "react-modal"
+import Popup from './popup'
 
 const Corporate = () => {
     const [data, setData] = useState([]);
     const [job, setJob] = useState({state: 'Karnataka'});
+    const [value, setSignedIn] = useState(false);
+    const [email, setEmail] = useState("");
+    const [success,setSuccess] = useState(false);
+
 
     useEffect(() => {
         fetchData();
     }, [])
 
     const navigate = useNavigate();
+
+    const handleSignIn = (newValue) => {
+        setSignedIn(newValue);
+    }
+    const handleEmail = (newMail) => {
+        setEmail(newMail);
+    }
+    const handleAdmin = (newbool) => {
+        setSuccess(newbool);
+        setSignedIn(false)
+    }
+
     const fetchData = () => {
         axios.get("https://jobs-finite.herokuapp.com/getAllPrivatePosts")
             .then(res => {
@@ -30,7 +48,10 @@ const Corporate = () => {
     }
     return (
         <div>
-            <Header />
+            <Header handleSignIn={handleSignIn} handleEmail={handleEmail}/>
+            {value && <div style={{ marginTop: "100px", marginLeft: "200px"}}>
+                <Popup value={value} email={email} handleAdmin={handleAdmin} handleSignIn={handleSignIn}/>
+            </div>}
             <h2 style={{textAlign: "center", color: "#d3212d"}}>IT Jobs</h2>
             <div id="govtpage-main-outside">
                         <div id="govtpage-main" className="gap">
@@ -93,7 +114,7 @@ const Corporate = () => {
                         </div>
                 </div>
                 
-            <Footer />
+            <Footer value={success}/>
         </div>
     );
 };
