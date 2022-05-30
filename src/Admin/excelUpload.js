@@ -7,7 +7,7 @@ import './admin.css'
 const type = [{name: "govt"},{name: "private"}]
 
 const Excel = () => {
-	const [select,setSelect] = useState("");
+	const [select,setSelect] = useState(type[0].name);
 
 	let formData = new FormData();
 
@@ -27,10 +27,7 @@ const Excel = () => {
 
 	const uploadFile = () => {
 		console.log(formData,select)
-		axios.post("https://jobs-finite.herokuapp.com/excelUpload", {
-			      method: "post",
-			      body: {file: formData, fileType: select}
-			    })
+		axios.post("https://jobs-finite.herokuapp.com/excelUpload",{file: formData, fileType: select})
 			.then((res) => console.log(res))
 			.catch((err) => console.log(err))
 	}

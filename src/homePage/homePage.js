@@ -10,7 +10,7 @@ function HomePage(){
     return (
             <div id="homepage-main-outside">
                 <div id="homepage-main">
-                    <div className="hovering-effect" onClick={()=> window.location = "/centralgovtPortal"} >
+                    <div className="hovering-effect" onClick={()=> window.location = "/governmentportal"} >
                         <div className="zoom">
                             <img src={govtLogo} ></img>
                             <b className="job-category" style={{color: "#CB1515"}}>Government Jobs</b>

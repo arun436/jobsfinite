@@ -271,7 +271,9 @@ function Header(props) {
                                 } isMulti placeholder="Select categories" options={stateData} onChange={storeCategories} /> : null}
                         </div>
                         <div id="header-text">
-                            <input type="email" id="type-email" placeholder="Enter your email address" />
+                            <form>
+                            <input type="email" id="type-email" placeholder="Enter your email address" autoComplete="off"/>
+                            </form>
                             <button id="header-text-button" onClick={showAlert}>SUBSCRIBE</button>
                         </div>
                     </div>
