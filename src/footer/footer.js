@@ -1,8 +1,36 @@
 import React from 'react';
+import { useState } from 'react';
+import axios from 'axios'
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
 import "./footer.css"
 import { FaFacebook,FaInstagram,FaTwitter,FaLinkedin } from "react-icons/fa"
 
 const Footer = (props) => {
+    const [feedback, setFeedback] = useState("");
+    const [boolfeed,setboolfeed] = useState(false)
+
+    
+    const Alert = React.forwardRef(function Alert(props, ref) {
+      return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+    });
+
+    const changeFeedback = () => {
+        setFeedback(document.getElementById("txt-feedback").value);
+    }
+    const handleFeedback = (event, reason) => {
+        setboolfeed(false)
+      };
+    const resetMessage = () => {
+        axios.post("https://jobs-finite.herokuapp.com/sendFeedback", {feedback})
+        .then((res) => {
+            setboolfeed(true)
+            console.log(res)
+        }).catch((e) => {
+            console.log(e)
+        })
+        document.getElementById("txt-feedback").value = "";
+    }
     return (
         <div>
             <footer className="footer">
@@ -17,11 +45,24 @@ const Footer = (props) => {
                             </ul>
                         </div>
                         <div className="footer-col">
+                        <Snackbar
+                            open={boolfeed}
+                            anchorOrigin={{ vertical: "top", horizontal: "center" }}
+                            autoHideDuration={2000}
+                            onClose={handleFeedback}
+                          >
+
+                            <Alert onClose={handleFeedback} severity="success" sx={{ width: "100%" }}>
+                              Feedback sent
+                            </Alert>
+
+                          </Snackbar>
                             <h4>get help</h4>
                             <ul>
                                 <li><a href="#">Contact us</a></li>
                                 <li><a href="#">Feedback</a></li>
-                                <li><textarea type="text" style={{marginRight: "3px"}}></textarea><button id='submit' style={{display:"block", verticalAlign: "center", color: "gray", cursor: "pointer"}}>Submit</button></li>
+                                <li><textarea type="text" id="txt-feedback" onChange={changeFeedback} style={{marginRight: "3px"}}></textarea>
+                                <button id='submit' onClick={resetMessage} style={{display:"block", verticalAlign: "center", color: "white", backgroundColor: "#e91e63", cursor: "pointer"}}>Submit</button></li>
                             </ul>
                         </div>
                         <div className="footer-col">

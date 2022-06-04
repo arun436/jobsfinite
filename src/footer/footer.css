@@ -99,6 +99,9 @@ body{
 	color: #24262b;
 	background-color: #ffffff;
 }
+.footer-col #submit:hover{
+	opacity: 50%;
+}
 
 /*responsive*/
 @media(max-width: 767px){

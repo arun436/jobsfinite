@@ -22,8 +22,8 @@
 
 #main-logo{
     margin-left: 10px;
-    height: 30px;
-    width: 200px;
+    height: 35px;
+    width: 220px;
     object-fit: scale-down;
 }
 #header-text{
@@ -52,7 +52,8 @@
     box-shadow: 3px 3px black;
     background-color: white;
     color: black;*/
-    opacity: 80%;
+    opacity: 50%;
+    transition: 0.6s ease;
     cursor: pointer;
 }
 /* #header-main span{
@@ -160,8 +161,8 @@
     }
     #main-logo{
         margin-left: 10px;
-        height: 20px;
-        width: 100px;
+        height: 30px;
+        width: 120px;
         object-fit: scale-down;
     }
     #header-text{

@@ -39,10 +39,6 @@ function Header(props) {
         {
             value: 4,
             label: "SSC"
-        },
-        {
-            value: 5,
-            label: "All"
         }
     ];
     const stateData = [
@@ -100,7 +96,7 @@ function Header(props) {
         const val = document.getElementById('type-email').value;
         // var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         console.log(val)
-        var validRegex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
+        var validRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
 
         if (val === "" || !validRegex.test(val)) {
             // alert("Enter valid email address");
@@ -117,7 +113,9 @@ function Header(props) {
 
                     .then((res) => {
                         if(res.status === 200){
+                            console.log(res.data)
                             setOpenMsg(res.data);
+                            document.getElementById("type-email").value = "";
                             handleClick();
                         } else if(res.status === 201) {
                             props.handleSignIn(true);
@@ -126,6 +124,7 @@ function Header(props) {
                     })
                         .catch((e) => {
                             // console.log(mail)
+                            // console.log(e.response.data.errorDescription)
                             setFailMsg(e.response.data.errorDescription);
                             handleFail();
                         })
@@ -146,6 +145,7 @@ function Header(props) {
                 axios.post("https://jobs-finite.herokuapp.com/saveSubscriber", {emailId: mail})
                     .then((res) => {
                         setOpenMsg(res.data);
+                        document.getElementById("type-email").value = "";
                         handleClick();
                     }).catch((e) => {
                         setFailMsg(e.response.data.errorDescription);
@@ -161,10 +161,13 @@ function Header(props) {
             else {
                 
                 // If they select all option in central page and it is incomplete need to confirm!
-                if(selectArray[0] === "All" || selectArray[0] === "UPSC" || selectArray[0] === "Bank" || selectArray[0] === "Railways" || selectArray[0] === "SSC") {
-                    axios.post("https://jobs-finite.herokuapp.com/saveCentralGovtSubscriber",{emailId: mail})
-                        .then((res) => {
+                if(selectArray[0] === "UPSC" || selectArray[0] === "Bank" || selectArray[0] === "Railways" || selectArray[0] === "SSC") {
+                    axios.post("https://jobs-finite.herokuapp.com/saveCentralGovtSubscriber",{
+                        emailId: mail,
+                        categoryList: selectArray
+                    }).then((res) => {
                             setOpenMsg(res.data);
+                            document.getElementById("type-email").value = "";
                             handleClick();
                         })
                         .catch((e) => {
@@ -175,7 +178,7 @@ function Header(props) {
                 }
 
                 // If they select any state then this if will be executed
-                if(selectArray[0] !== "All" || selectArray[0] !== "UPSC" || selectArray[0] !== "Bank" || selectArray[0] !== "Railways" || selectArray[0] !== "SSC") {
+                if(selectArray[0] !== "UPSC" || selectArray[0] !== "Bank" || selectArray[0] !== "Railways" || selectArray[0] !== "SSC") {
                     // const emailData = {
                     //     emailId: mail,
                     //     state: selectArray[0]
@@ -185,6 +188,7 @@ function Header(props) {
                         state: selectArray[0]
                     }).then((res) => {
                             setOpenMsg(res.data);
+                            document.getElementById("type-email").value = "";
                             handleClick();
                         })
                         .catch((e) => {
@@ -203,12 +207,12 @@ function Header(props) {
         // console.log(e)
 
         const updatedCategories = e
-        if(updatedCategories.length > 1) {
-            // alert("Please select only one category");
-            setFailMsg("Please select only one category");
-            handleFail();
-            e.preventDefault();
-        }
+        // if(updatedCategories.length > 1) {
+        //     // alert("Please select only one category");
+        //     setFailMsg("Please select only one category");
+        //     handleFail();
+        //     e.preventDefault();
+        // }
 
         for (let i = 0; i < updatedCategories.length; i++) {
             selectArrayModified[i] = updatedCategories[i].label;
