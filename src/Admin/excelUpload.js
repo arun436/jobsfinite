@@ -16,15 +16,12 @@ const Excel = () => {
 		setName(e.target.files[0].name)
 
 		if(e.target && e.target.files[0]){
-<<<<<<< HEAD
 			if(name.includes(select)) {
 				formData.append('file',e.target.files[0]);
 			} else {
 				alert("You selected " + name + " file for " + select + " type")
 			}
-=======
 			formData.append('file',e.target.files[0]);
->>>>>>> 8d4588eac036ff263396254035f96972edb71178
 			
 		}
 	}
@@ -36,24 +33,17 @@ const Excel = () => {
 
 
 	const uploadFile = () => {
-<<<<<<< HEAD
-		if(name.includes(select)) {
-			formData.append("fileType",select);
-			// console.log("format data to be sent",formData,select)
-			axios.post("https://jobs-finite.herokuapp.com/excelUpload",formData)
-				.then((res) => console.log(res))
-				.catch((err) => console.log(err))
-		} else {
-			alert("Upload proper file")
+			if(name.includes(select)) {
+				formData.append("fileType",select);
+				// console.log("format data to be sent",formData,select)
+				axios.post("https://jobs-finite.herokuapp.com/excelUpload",formData)
+					.then((res) => console.log(res))
+					.catch((err) => console.log(err))
+			} else {
+				alert("Upload proper file")
+			}
 		}
-=======
-		formData.append("fileType",select);
-		// console.log("format data to be sent",formData,select)
-		axios.post("https://jobs-finite.herokuapp.com/excelUpload",formData)
-			.then((res) => console.log(res))
-			.catch((err) => console.log(err))
->>>>>>> 8d4588eac036ff263396254035f96972edb71178
-	}
+
 
 	
 	return (

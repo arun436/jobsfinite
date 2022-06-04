@@ -9,6 +9,7 @@ import { FaFacebook,FaInstagram,FaTwitter,FaLinkedin } from "react-icons/fa"
 const Footer = (props) => {
     const [feedback, setFeedback] = useState("");
     const [boolfeed,setboolfeed] = useState(false)
+    const [boolfail, setboolfail] = useState(false)
 
     
     const Alert = React.forwardRef(function Alert(props, ref) {
@@ -20,16 +21,22 @@ const Footer = (props) => {
     }
     const handleFeedback = (event, reason) => {
         setboolfeed(false)
-      };
+        setboolfail(false)
+    }
     const resetMessage = () => {
-        axios.post("https://jobs-finite.herokuapp.com/sendFeedback", {feedback})
-        .then((res) => {
-            setboolfeed(true)
-            console.log(res)
-        }).catch((e) => {
-            console.log(e)
-        })
-        document.getElementById("txt-feedback").value = "";
+        if(document.getElementById("txt-feedback").value == ""){ setboolfail(true) }
+            else {
+            axios.post("https://jobs-finite.herokuapp.com/sendFeedback", {feedback})
+            .then((res) => {
+                setboolfeed(true)
+                // console.log(res)
+                   document.getElementById("txt-feedback").value = "";
+            }).catch((e) => {
+                console.log(e)
+                   document.getElementById("txt-feedback").value = "";
+            })
+        }
+     
     }
     return (
         <div>
@@ -56,6 +63,12 @@ const Footer = (props) => {
                               Feedback sent
                             </Alert>
 
+                          </Snackbar>
+                        <Snackbar open={boolfail} anchorOrigin={{ vertical: "top", horizontal: "center" }}
+                           autoHideDuration={2000} onClose={handleFeedback}>
+                            <Alert onClose={handleFeedback} severity="error" sx={{ width: "100%" }}>
+                              Enter the feedback
+                            </Alert>
                           </Snackbar>
                             <h4>get help</h4>
                             <ul>
