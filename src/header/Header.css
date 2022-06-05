@@ -24,6 +24,7 @@
     margin-left: 10px;
     height: 35px;
     width: 220px;
+    cursor: pointer;
     object-fit: scale-down;
 }
 #header-text{

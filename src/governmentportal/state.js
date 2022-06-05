@@ -4,9 +4,13 @@ import { BrowserRouter as Router,Routes, useNavigate,Route } from "react-router-
 import Header from '../header/header';
 import "./government.css";
 import Footer from '../footer/footer';
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
+import Button from '@mui/material/Button';
 
 const StateGovernment = () => {
     const [data, setData] = useState([]);
+    const [isData, setIsData] = useState(false)
     // const [job, setJob] = useState({ state: 'Karnataka' });
 
     useEffect(() => {
@@ -19,10 +23,12 @@ const StateGovernment = () => {
         axios.get("https://jobs-finite.herokuapp.com/getAllStateGovtPosts")
             .then(res => {
                 setData([...res.data])
+                setIsData(true)
             })
             .catch(err => console.log(err));
     }
     return (
+        <>{ isData ? 
         <div>
             <Header />
             <h2 style={{ textAlign: "center", color: "#d3212d" }}>State Government Jobs</h2>
@@ -900,7 +906,13 @@ const StateGovernment = () => {
                 </div>
             </div>
             <Footer />
-        </div>
+        </div>  : <Backdrop
+                            sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                            open={!isData}
+                          >
+                            <CircularProgress color="inherit" />
+                          </Backdrop>
+                }</>
     );
 };
 

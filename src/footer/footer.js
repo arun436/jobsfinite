@@ -4,7 +4,7 @@ import axios from 'axios'
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 import "./footer.css"
-import { FaFacebook,FaInstagram,FaTwitter,FaLinkedin } from "react-icons/fa"
+import { FaFacebook,FaInstagram,FaTwitter,FaLinkedin,FaYoutube } from "react-icons/fa"
 
 const Footer = (props) => {
     const [feedback, setFeedback] = useState("");
@@ -91,9 +91,10 @@ const Footer = (props) => {
                             <h4>follow us</h4>
                             <div className="social-links">
                                 <a href="#"><i className="fab fa-facebook-f"><FaFacebook/></i></a>
-                                <a href="#"><i className="fab fa-twitter"><FaTwitter/></i></a>
+                                {/*<a href="#"><i className="fab fa-twitter"><FaTwitter/></i></a>*/}
                                 <a href="#"><i className="fab fa-instagram"><FaInstagram/></i></a>
                                 <a href="#"><i className="fab fa-linkedin-in"><FaLinkedin/></i></a>
+                                <a href="#"><i className="fab fa-youtube-in"><FaYoutube/></i></a>
                             </div>
                         </div>
                     </div>

@@ -10,10 +10,15 @@ import data from './datajobs.json';
 import Job from './job';
 import axios from 'axios'
 import Footer from '../footer/footer';
+import Backdrop from '@mui/material/Backdrop';
+import CircularProgress from '@mui/material/CircularProgress';
+import Button from '@mui/material/Button';
 
 const CentralGovernment = () => { 
     const [data, setData] = useState([]);
     const [job, setJob] = useState({state: 'Karnataka'});
+    const [isData, setIsData] = useState(false)
+
 
     useEffect(() => {
         fetchData();
@@ -21,14 +26,16 @@ const CentralGovernment = () => {
 
     const navigate = useNavigate();
     const fetchData = () => {
-        document.getElementById('bank-body').innerHTML = '';
+        // document.getElementById('bank-body').innerHTML = '';
         axios.get("https://jobs-finite.herokuapp.com/getAllCentralGovtPost")
             .then(res => {
                 setData([...res.data])
+                setIsData(true)
             }) 
             .catch(err => console.log(err));
     }
     return (
+        <>{ isData ? 
         <div>
             <Header/>
             <div>
@@ -166,7 +173,13 @@ const CentralGovernment = () => {
 
             </div>
             <Footer/>
-        </div>
+        </div> : <Backdrop
+                            sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                            open={!isData}
+                          >
+                            <CircularProgress color="inherit" />
+                          </Backdrop>
+                      } </>
     );
 };
 

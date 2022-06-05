@@ -22,6 +22,7 @@ function Header(props) {
     const [openMsg, setOpenMsg] = useState("");
     const [fail, setFail] = useState(false);
     const [failMsg, setFailMsg] = useState("");
+    const [disabled, setDisabled] = useState(false)
 
     const centralData = [
         {
@@ -117,6 +118,8 @@ function Header(props) {
                             setOpenMsg(res.data);
                             document.getElementById("type-email").value = "";
                             handleClick();
+                            setDisabled(true);
+                            document.getElementById("header-text-button").innerHTML = "SUBSCRIBED"
                         } else if(res.status === 201) {
                             props.handleSignIn(true);
                             props.handleEmail(mail);
@@ -147,6 +150,8 @@ function Header(props) {
                         setOpenMsg(res.data);
                         document.getElementById("type-email").value = "";
                         handleClick();
+                        setDisabled(true);
+                        document.getElementById("header-text-button").innerHTML = "SUBSCRIBED"
                     }).catch((e) => {
                         setFailMsg(e.response.data.errorDescription);
                         handleFail();
@@ -169,6 +174,8 @@ function Header(props) {
                             setOpenMsg(res.data);
                             document.getElementById("type-email").value = "";
                             handleClick();
+                            setDisabled(true);
+                            document.getElementById("header-text-button").innerHTML = "SUBSCRIBED"
                         })
                         .catch((e) => {
                             setFailMsg(e.response.data.errorDescription);
@@ -190,6 +197,9 @@ function Header(props) {
                             setOpenMsg(res.data);
                             document.getElementById("type-email").value = "";
                             handleClick();
+                            setDisabled(true);
+                            document.getElementById("header-text-button").innerHTML = "SUBSCRIBED"
+
                         })
                         .catch((e) => {
                             // console.log(selectArray[0]);
@@ -228,7 +238,7 @@ function Header(props) {
                 
                 <div id="header-main">
                     <div id="float-left">
-                        <img src={logo} id="main-logo"></img>
+                        <img src={logo} onClick={() => window.location = "/"} id="main-logo"></img>
                     </div>
 
                      <Snackbar
@@ -278,7 +288,7 @@ function Header(props) {
                             <form>
                             <input type="email" id="type-email" placeholder="Enter your email address" autoComplete="off"/>
                             </form>
-                            <button id="header-text-button" onClick={showAlert}>SUBSCRIBE</button>
+                            <button id="header-text-button" onClick={showAlert} disabled={disabled} >SUBSCRIBE</button>
                         </div>
                     </div>
                 </div>
