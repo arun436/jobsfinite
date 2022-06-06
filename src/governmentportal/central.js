@@ -35,11 +35,11 @@ const CentralGovernment = () => {
             .catch(err => console.log(err));
     }
     return (
-        <>{ isData ? 
+        <> 
         <div>
             <Header/>
+            { isData ?
             <div>
-            </div>
 
             <h2 style={{textAlign: "center", color: "#d3212d"}}>Central Government Jobs</h2>
             <div id="govtpage-main-outside">
@@ -172,14 +172,17 @@ const CentralGovernment = () => {
                 </div>
 
             </div>
-            <Footer/>
-        </div> : <Backdrop
+            </div>
+             : <Backdrop
                             sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
                             open={!isData}
                           >
                             <CircularProgress color="inherit" />
                           </Backdrop>
-                      } </>
+                      }
+            <Footer/>
+           
+        </div> </>
     );
 };
 

@@ -23,7 +23,7 @@
 #main-logo{
     margin-left: 10px;
     height: 35px;
-    width: 220px;
+    width: 230px;
     cursor: pointer;
     object-fit: scale-down;
 }
@@ -161,22 +161,28 @@
         font-weight: 400;
     }
     #main-logo{
-        margin-left: 10px;
-        height: 30px;
-        width: 120px;
+        /*margin-left: 10px;*/
+        padding-top: 7px;
+        height: 40px;
+        width: 110px;
         object-fit: scale-down;
     }
     #header-text{
         margin-right: 5%;
     }
     #header-text #header-text-button{
+        width: 45%;
+        height: 9%;
+        margin-top: 2px;
         background-color: grey;
     }
     #header-main #header-text input{
         float: right;
         width: 110px;
+        height: 25px;
+        /*height: 9%;*/
         margin-right: 10px;
-        margin-left: 10px;
+        /*margin-left: 10px;*/
         border-radius: 5px;
     }
     #header-main #float-right #multi-select{

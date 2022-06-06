@@ -1,7 +1,7 @@
 import Header from '../header/header';
 import Footer from '../footer/footer';
 import "./corporate.css"
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { BrowserRouter as Router,Routes, useNavigate,Route } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import "../governmentportal/government.css";
@@ -57,8 +57,10 @@ const Corporate = () => {
     }
     return (
         <>
-        { isData ? <div>
+        <div>
                   <Header handleSignIn={handleSignIn} handleEmail={handleEmail}/>
+                  { isData ? 
+                  <>
                     {value && <div style={{ marginTop: "100px", marginLeft: "200px"}}>
                         <Popup value={value} email={email} handleAdmin={handleAdmin} handleSignIn={handleSignIn}/>
                     </div>}
@@ -123,14 +125,15 @@ const Corporate = () => {
                                     </table>
                                 </div>
                         </div>
-                    <Footer value={success}/>
-                </div> : <Backdrop
+                        </> : <Backdrop
                             sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
                             open={!isData}
                           >
                             <CircularProgress color="inherit" />
                           </Backdrop>
-            }</>
+            }
+                    <Footer value={success}/>
+                </div> </>
     );
 };
 

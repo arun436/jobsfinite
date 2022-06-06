@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import React from 'react'
 import logo from "../images/logo.png";
 import "./Header.css";
@@ -23,6 +23,10 @@ function Header(props) {
     const [fail, setFail] = useState(false);
     const [failMsg, setFailMsg] = useState("");
     const [disabled, setDisabled] = useState(false)
+    const selectInputRef = useRef();
+    const selectStateRef = useRef();
+    const selectInputMobileRef = useRef();
+    const selectStateMobileRef = useRef();
 
     const centralData = [
         {
@@ -176,6 +180,8 @@ function Header(props) {
                             handleClick();
                             setDisabled(true);
                             document.getElementById("header-text-button").innerHTML = "SUBSCRIBED"
+                            selectInputRef.current.clearValue();
+                            selectInputMobileRef.current.clearValue();
                         })
                         .catch((e) => {
                             setFailMsg(e.response.data.errorDescription);
@@ -199,6 +205,8 @@ function Header(props) {
                             handleClick();
                             setDisabled(true);
                             document.getElementById("header-text-button").innerHTML = "SUBSCRIBED"
+                            selectStateRef.current.clearValue();
+                            selectStateMobileRef.current.clearValue();
 
                         })
                         .catch((e) => {
@@ -263,7 +271,7 @@ function Header(props) {
 
                     <div id="float-right">
                         <div id="multi-select">{window.location.pathname === "/centralgovtPortal" ?
-                            <Select isMulti id="select-tag" placeholder="Select categories" options={centralData} onChange={storeCategories}
+                            <Select isMulti id="select-tag" placeholder="Select categories" ref={selectInputRef} options={centralData} onChange={storeCategories}
                                 hideSelectedOptions={true}
                                 theme={(theme) => ({
                                     ...theme,
@@ -282,7 +290,7 @@ function Header(props) {
                                         primary25: 'gray',
                                     },
                                 })
-                                } isMulti placeholder="Select categories" options={stateData} onChange={storeCategories} /> : null}
+                                } isMulti placeholder="Select categories" ref={selectStateRef} options={stateData} onChange={storeCategories} /> : null}
                         </div>
                         <div id="header-text">
                             <form>
@@ -294,7 +302,7 @@ function Header(props) {
                 </div>
                 <div id="float-right-mobile">
                         <div id="multi-select-mobile">{window.location.pathname === "/centralgovtPortal" ?
-                            <Select isMulti id="select-tag-mobile" placeholder="Select categories" options={centralData} onChange={storeCategories}
+                            <Select isMulti id="select-tag-mobile" placeholder="Select categories" ref={selectInputMobileRef} options={centralData} onChange={storeCategories}
                                 hideSelectedOptions={true}
                                 theme={(theme) => ({
                                     ...theme,
@@ -313,7 +321,7 @@ function Header(props) {
                                         primary25: 'gray',
                                     },
                                 })
-                                } isMulti placeholder="Select categories" options={stateData} onChange={storeCategories} /> : null}
+                                } isMulti placeholder="Select categories" ref={selectStateMobileRef} options={stateData} onChange={storeCategories} /> : null}
                         </div>
                     </div>
                     <div id="marquee-top">
