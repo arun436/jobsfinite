@@ -3,9 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Favicon from 'react-favicon'
+import jb from './images/jb.png'
 
 ReactDOM.render(
-    <App />,
+    <div>
+        <Favicon url={jb}></Favicon>
+    <App />
+    </div>,
   document.getElementById('root')
 );
 

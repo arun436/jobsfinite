@@ -11,11 +11,13 @@ import OnlyJob from "./corporateportal/onlyJob/onlyJob.js"
 import Govt from "./governmentmain/govt.js"
 import Excel from "./Admin/excelUpload"
 
+
 function App() {
 
 
   // let history  = useNavigate();
   return (
+    <>
      <Router>
         <Routes>
           <Route exact path="/" element={<DashBoard/>}></Route>
@@ -36,6 +38,7 @@ function App() {
 
           </Routes>
      </Router> 
+     </>
     
   );
 }
