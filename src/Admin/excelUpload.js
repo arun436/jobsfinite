@@ -1,47 +1,62 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import axios from 'axios'
 import './admin.css'
 
 
-const type = [{name: "govt"},{name: "private"}]
+const cate = [{name: ""},{name: "govt"},{name: "private"}]
 
 const Excel = () => {
-	const [select,setSelect] = useState(type[0].name);
-	const [name, setName] = useState("");
+	const [select,setSelect] = useState(cate[0].name);
+	const [type, setType] = useState("");
+	const [disab,setDisabled] = useState(false)
 
 	let formData = new FormData();
 
-
 	const handleFile = (e) => {
-		setName(e.target.files[0].name)
-
-		if(e.target && e.target.files[0]){
-			if(name.includes(select)) {
-				formData.append('file',e.target.files[0]);
-			} else {
-				alert("You selected " + name + " file for " + select + " type")
-			}
+		// formData = new FormData();
+		let tar = e.target.files[0].name+""
+		// console.log(e.target.files[0].name)
+		if(e.target && e.target.files[0]) {
 			formData.append('file',e.target.files[0]);
-			
 		}
+
+		// setType(tar)
 	}
+		
 
 	const handleStateChange = (e) => {
-		// console.log(type[e.target.value].name)
-		setSelect(type[e.target.value].name)
+		// console.log(e.target.value)
+		// console.log(cate[e.target.value].name)
+		setSelect(cate[e.target.value].name)
 	}
 
 
 	const uploadFile = () => {
-			if(name.includes(select)) {
+		// // console.log(select + " file name" + type)
+		// console.log(type)
+			// if(type.includes(select)) {
+		// 		// formData.append("file")
 				formData.append("fileType",select);
+				// console.log(select)
 				// console.log("format data to be sent",formData,select)
 				axios.post("https://jobs-finite.herokuapp.com/excelUpload",formData)
-					.then((res) => console.log(res))
-					.catch((err) => console.log(err))
-			} else {
-				alert("Upload proper file")
-			}
+					.then((res) => {
+						alert("Success");
+						document.getElementById("btn-up").style.background = "green"
+						document.getElementById("btn-up").innerHTML = "Uploaded"
+
+					})
+					.catch((err) => {
+						alert("failed")
+						document.getElementById("btn-up").style.background = "red"
+					})
+
+					setDisabled(true)
+					// document.getElementById("btn-up").style.background = "black"
+
+			// } else {
+			// 	alert("Upload proper file")
+			// }
 		}
 
 
@@ -53,7 +68,7 @@ const Excel = () => {
 			<div className="select-upload">
 			<div style={{marginBottom: "20px"}}>Select govt or private </div>
 			<select  onChange={handleStateChange}>
-				{type.map((item,itemIndex) => {
+				{cate.map((item,itemIndex) => {
 					return <option key={itemIndex} value={itemIndex}>{item.name}</option>
 				})}
 			</select>
@@ -64,7 +79,7 @@ const Excel = () => {
 			</div>
 			<div className="btn-upload">
 
-			<button onClick={uploadFile}>Upload</button>
+			<button onClick={uploadFile} id="btn-up" disabled={disab}>Upload</button>
 			</div>
 		</div>
 		)
@@ -72,6 +87,3 @@ const Excel = () => {
 }
 
 export default Excel;
-
-	
-	

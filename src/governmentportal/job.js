@@ -272,10 +272,7 @@ const Job = (props) => {
                         <div className='inner-job-content' style={{display: "flex", paddingTop: "0px", paddingBottom: "0px"}}>
                             <div style={{paddingLeft: "30%",flexBasis: "50%", float: "right"}}>Apply Online: </div><div style={{flexBasis: "50%"}}><a href={newData.url} style={{fontWeight: "bold"}}>Click Here!</a></div>
                         </div>
-                        <hr className='solid'/>
-                        <div className='inner-job-content' style={{display: "flex", paddingTop: "0px", paddingBottom: "0px"}}>
-                            <div style={{paddingLeft: "30%",flexBasis: "50%", float: "right"}}>Notification: </div><div style={{flexBasis: "50%"}}><a href='https://www.google.com/' style={{fontWeight: "bold"}}>Click Here!</a></div>
-                        </div>
+                        
                         <hr className='solid'/>
                         <div className='inner-job-content' style={{display: "flex", paddingTop: "0px", paddingBottom: "15px"}}>
                             <div style={{paddingLeft: "30%",flexBasis: "50%", float: "right"}}>Official Website: </div><div style={{flexBasis: "50%"}}><a href={newData.officialUrl} style={{fontWeight: "bold"}}>Click Here!</a></div>
