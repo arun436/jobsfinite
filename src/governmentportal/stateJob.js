@@ -13,7 +13,7 @@ const StateJob = (props) => {
     const id = params.id;
     const [newData, setNewData] = useState({});
     React.useEffect(() => {
-        // console.log('new Location', location)
+        console.log('new Location', location)
 
         if(location.state == null){
             axios.get(`https://jobs-finite.herokuapp.com/getPostDetails/state/${id}`)
@@ -42,7 +42,7 @@ const StateJob = (props) => {
                         </div>
                         <hr className='solid'/>
                         <div className='inner-job-content'>
-                            <div><span className="side-heading">Exam Date: </span> {location.state.postDate}</div>
+                            <div><span className="side-heading">Exam Date: </span> {location.state.postDateString}</div>
                         </div>
                         <hr className='solid'/>
                         <div className='inner-job-content'>
