@@ -264,7 +264,7 @@ function Header(props) {
     return (
         <>
         {load ? <div className={"item"} id="loader">
-                <Loader type="spinner-default" bgColor={"#808080"} title={"Please wait for some time"} color={'#808080'} size={100} />
+                <Loader type="spinner-default" bgColor={"#0000FF"} title={"Please wait for some time"} color={'#0000FF'} size={100} />
             </div> : null }
         <div>
             <div>
