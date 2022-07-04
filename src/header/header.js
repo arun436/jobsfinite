@@ -9,7 +9,7 @@ import axios from 'axios'
 import MuiAlert from "@mui/material/Alert";
 import { Outlet, Link } from "react-router-dom";
 import Snackbar from "@mui/material/Snackbar";
-
+import Loader from "react-js-loader";
 
 
 function Header(props) {
@@ -23,6 +23,7 @@ function Header(props) {
     const [fail, setFail] = useState(false);
     const [failMsg, setFailMsg] = useState("");
     const [disabled, setDisabled] = useState(false)
+    const [load, setLoad] = useState(false)
     const selectInputRef = useRef();
     const selectStateRef = useRef();
     const selectInputMobileRef = useRef();
@@ -98,6 +99,8 @@ function Header(props) {
         setFailMsg("");
       };
     const showAlert = () => {
+        setLoad(true)
+        // e.preventDefault();
         const val = document.getElementById('type-email').value;
         // var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         console.log(val)
@@ -106,6 +109,7 @@ function Header(props) {
         if (val === "" || !validRegex.test(val)) {
             // alert("Enter valid email address");
             setFailMsg("Enter Valid Email Address");
+            setLoad(false)
             handleFail();
         } else {
             let mail = document.getElementById("type-email").value;
@@ -118,13 +122,15 @@ function Header(props) {
 
                     .then((res) => {
                         if(res.status === 200){
-                            console.log(res.data)
+                            // console.log(res.data)
+                            setLoad(false)
                             setOpenMsg(res.data);
                             document.getElementById("type-email").value = "";
                             handleClick();
                             setDisabled(true);
                             document.getElementById("header-text-button").innerHTML = "SUBSCRIBED"
                         } else if(res.status === 201) {
+                            setLoad(false)
                             props.handleSignIn(true);
                             props.handleEmail(mail);
                         }
@@ -132,6 +138,7 @@ function Header(props) {
                         .catch((e) => {
                             // console.log(mail)
                             // console.log(e.response.data.errorDescription)
+                            setLoad(false)
                             setFailMsg(e.response.data.errorDescription);
                             handleFail();
                         })
@@ -151,6 +158,7 @@ function Header(props) {
             if(window.location.pathname === "/" || window.location.pathname === "/governmentportal"){
                 axios.post("https://jobs-finite.herokuapp.com/saveSubscriber", {emailId: mail})
                     .then((res) => {
+                        setLoad(false)
                         setOpenMsg(res.data);
                         document.getElementById("type-email").value = "";
                         handleClick();
@@ -163,6 +171,7 @@ function Header(props) {
             }
             else if (selectArray.length === 0 && window.location.pathname !== "/") {
                 // alert("Please select the categories you need to get notified");
+                setLoad(false)
                 setFailMsg("Please select the categories you need to get notified");
                 handleFail();
                 // document.getElementById('select-tag').autofocus = true;
@@ -175,6 +184,7 @@ function Header(props) {
                         emailId: mail,
                         categoryList: selectArray
                     }).then((res) => {
+                        setLoad(false)
                             setOpenMsg(res.data);
                             document.getElementById("type-email").value = "";
                             handleClick();
@@ -184,6 +194,7 @@ function Header(props) {
                             selectInputMobileRef.current.clearValue();
                         })
                         .catch((e) => {
+                            setLoad(false)
                             setFailMsg(e.response.data.errorDescription);
                             handleFail();
                         })
@@ -200,6 +211,7 @@ function Header(props) {
                         emailId: mail,
                         state: selectArray[0]
                     }).then((res) => {
+                            setLoad(false)
                             setOpenMsg(res.data);
                             document.getElementById("type-email").value = "";
                             handleClick();
@@ -211,6 +223,7 @@ function Header(props) {
                         })
                         .catch((e) => {
                             // console.log(selectArray[0]);
+                            setLoad(false)
                             setFailMsg(e.response.data.errorDescription);
                             handleFail();
                         })
@@ -218,6 +231,14 @@ function Header(props) {
             }
         }
 
+    }
+    const handleKeyPress = e => {
+        if(e.key === "Enter") {
+            e.preventDefault();
+            document.getElementById('type-email').disabled = true
+            document.getElementById("header-text-button").click();
+            // document.getElementById("header-main").style.opacity = 0.5;
+        }
     }
 
     const storeCategories = (e) => {
@@ -241,6 +262,10 @@ function Header(props) {
 
 
     return (
+        <>
+        {load ? <div className={"item"} id="loader">
+                <Loader type="spinner-default" bgColor={"#808080"} title={"Please wait for some time"} color={'#808080'} size={100} />
+            </div> : null }
         <div>
             <div>
                 
@@ -294,9 +319,10 @@ function Header(props) {
                         </div>
                         <div id="header-text">
                             <form>
-                            <input type="email" id="type-email" placeholder="Enter your email address" autoComplete="off"/>
+                            <input type="email" id="type-email" placeholder="Enter your email address" onKeyPress={handleKeyPress} autoComplete="off"/>
                             </form>
                             <button id="header-text-button" onClick={showAlert} disabled={disabled} >SUBSCRIBE</button>
+                            
                         </div>
                     </div>
                 </div>
@@ -339,6 +365,7 @@ function Header(props) {
                 <a href="/privatePortal" className="hide" id="private-id">IT Jobs</a>
             </div>
         </div>
+        </>
     )
 }
 
