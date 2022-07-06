@@ -49,7 +49,7 @@ const StateGovernment = () => {
                         </thead>
                         <tbody>
                         
-                            {data && data.filter(index => index.state === "Andaman").map((item, ind) => {
+                            {data && data.filter(index => index.state.replace(/\s+/g,"").toLowerCase().includes("andaman")).map((item, ind) => {
                                 return (
                                     <tr key={ind}>
                                         <td>{item.postDateString}</td>
@@ -79,7 +79,7 @@ const StateGovernment = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {data && data.filter(index => index.state === "AndhraPradesh").map((item, ind) => {
+                            {data && data.filter(index => index.state.replace(/\s+/g,"").toLowerCase().includes("andhrapradesh")).map((item, ind) => {
                                 return (
                                     <tr key={ind}>
                                         <td>{item.postDateString}</td>
@@ -109,7 +109,7 @@ const StateGovernment = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {data && data.filter(index => index.state === "ArunachalPradesh").map((item, ind) => {
+                            {data && data.filter(index => index.state.replace(/\s+/g,"").toLowerCase().includes("arunachalpradesh")).map((item, ind) => {
                                 return (
                                     <tr key={ind}>
                                         <td>{item.postDateString}</td>
@@ -139,7 +139,7 @@ const StateGovernment = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {data && data.filter(index => index.state === "Assam").map((item, ind) => {
+                            {data && data.filter(index => index.state.replace(/\s+/g,"").toLowerCase().includes("assam")).map((item, ind) => {
                                 return (
                                     <tr key={ind}>
                                         <td>{item.postDateString}</td>
@@ -169,7 +169,7 @@ const StateGovernment = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {data && data.filter(index => index.state === "Bihar").map((item, ind) => {
+                            {data && data.filter(index => index.state.replace(/\s+/g,"").toLowerCase().includes("bihar")).map((item, ind) => {
                                 return (
                                     <tr key={ind}>
                                         <td>{item.postDateString}</td>
@@ -199,7 +199,7 @@ const StateGovernment = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {data && data.filter(index => index.state === "Chhattisgarh").map((item, ind) => {
+                            {data && data.filter(index => index.state.replace(/\s+/g,"").toLowerCase().includes("chhattisgarh")).map((item, ind) => {
                                 return (
                                     <tr key={ind}>
                                         <td>{item.postDateString}</td>
@@ -229,7 +229,7 @@ const StateGovernment = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {data && data.filter(index => index.state === "Goa").map((item, ind) => {
+                            {data && data.filter(index => index.state.replace(/\s+/g,"").toLowerCase().includes("goa")).map((item, ind) => {
                                 return (
                                     <tr key={ind}>
                                         <td>{item.postDateString}</td>
@@ -259,7 +259,7 @@ const StateGovernment = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {data && data.filter(index => index.state === "Gujarat").map((item, ind) => {
+                            {data && data.filter(index => index.state.replace(/\s+/g,"").toLowerCase().includes("gujarat")).map((item, ind) => {
                                 return (
                                     <tr key={ind}>
                                         <td>{item.postDateString}</td>
@@ -289,7 +289,7 @@ const StateGovernment = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {data && data.filter(index => index.state === "Haryana").map((item, ind) => {
+                            {data && data.filter(index => index.state.replace(/\s+/g,"").toLowerCase().includes("haryana")).map((item, ind) => {
                                 return (
                                     <tr key={ind}>
                                         <td>{item.postDateString}</td>
@@ -319,7 +319,7 @@ const StateGovernment = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {data && data.filter(index => index.state === "HimachalPradesh").map((item, ind) => {
+                            {data && data.filter(index => index.state.replace(/\s+/g,"").toLowerCase().includes("himachalpradesh")).map((item, ind) => {
                                 return (
                                     <tr key={ind}>
                                         <td>{item.postDateString}</td>
@@ -349,7 +349,7 @@ const StateGovernment = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {data && data.filter(index => index.state === "Jharkhand").map((item, ind) => {
+                            {data && data.filter(index => index.state.replace(/\s+/g,"").toLowerCase().includes("jharkhand")).map((item, ind) => {
                                 return (
                                     <tr key={ind}>
                                         <td>{item.postDateString}</td>
@@ -379,7 +379,7 @@ const StateGovernment = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {data && data.filter(index => index.state === "Karnataka").map((item, ind) => {
+                            {data && data.filter(index => index.state.replace(/\s+/g,"").toLowerCase().includes("karnataka")).map((item, ind) => {
                                 return (
                                     <tr key={ind}>
                                         <td>{item.postDateString}</td>
@@ -409,7 +409,7 @@ const StateGovernment = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {data && data.filter(index => index.state === "Kerala").map((item, ind) => {
+                            {data && data.filter(index => index.state.replace(/\s+/g,"").toLowerCase().includes("kerala")).map((item, ind) => {
                                 return (
                                     <tr key={ind}>
                                         <td>{item.postDateString}</td>
@@ -439,7 +439,7 @@ const StateGovernment = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {data && data.filter(index => index.state === "MadhyaPradesh").map((item, ind) => {
+                            {data && data.filter(index => index.state.replace(/\s+/g,"").toLowerCase().includes("madhyapradesh")).map((item, ind) => {
                                 return (
                                     <tr key={ind}>
                                         <td>{item.postDateString}</td>
@@ -469,7 +469,7 @@ const StateGovernment = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {data && data.filter(index => index.state === "Maharastra").map((item, ind) => {
+                            {data && data.filter(index => index.state.replace(/\s+/g,"").toLowerCase().includes("maharastra")).map((item, ind) => {
                                 return (
                                     <tr key={ind}>
                                         <td>{item.postDateString}</td>
@@ -499,7 +499,7 @@ const StateGovernment = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {data && data.filter(index => index.state === "Manipur").map((item, ind) => {
+                            {data && data.filter(index => index.state.replace(/\s+/g,"").toLowerCase().includes("manipur")).map((item, ind) => {
                                 return (
                                     <tr key={ind}>
                                         <td>{item.postDateString}</td>
@@ -529,7 +529,7 @@ const StateGovernment = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {data && data.filter(index => index.state === "Meghalaya").map((item, ind) => {
+                            {data && data.filter(index => index.state.replace(/\s+/g,"").toLowerCase().includes("meghalaya")).map((item, ind) => {
                                 return (
                                     <tr key={ind}>
                                         <td>{item.postDateString}</td>
@@ -559,7 +559,7 @@ const StateGovernment = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {data && data.filter(index => index.state === "Mizoram").map((item, ind) => {
+                            {data && data.filter(index => index.state.replace(/\s+/g,"").toLowerCase().includes("mizoram")).map((item, ind) => {
                                 return (
                                     <tr key={ind}>
                                         <td>{item.postDateString}</td>
@@ -589,7 +589,7 @@ const StateGovernment = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {data && data.filter(index => index.state === "Nagaland").map((item, ind) => {
+                            {data && data.filter(index => index.state.replace(/\s+/g,"").toLowerCase().includes("nagaland")).map((item, ind) => {
                                 return (
                                     <tr key={ind}>
                                         <td>{item.postDateString}</td>
@@ -619,7 +619,7 @@ const StateGovernment = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {data && data.filter(index => index.state === "Odisha").map((item, ind) => {
+                            {data && data.filter(index => index.state.replace(/\s+/g,"").toLowerCase().includes("odisha")).map((item, ind) => {
                                 return (
                                     <tr key={ind}>
                                         <td>{item.postDateString}</td>
@@ -649,7 +649,7 @@ const StateGovernment = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {data && data.filter(index => index.state === "Punjab").map((item, ind) => {
+                            {data && data.filter(index => index.state.replace(/\s+/g,"").toLowerCase().includes("punjab")).map((item, ind) => {
                                 return (
                                     <tr key={ind}>
                                         <td>{item.postDateString}</td>
@@ -679,7 +679,7 @@ const StateGovernment = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {data && data.filter(index => index.state === "Rajasthan").map((item, ind) => {
+                            {data && data.filter(index => index.state.replace(/\s+/g,"").toLowerCase().includes("rajasthan")).map((item, ind) => {
                                 return (
                                     <tr key={ind}>
                                         <td>{item.postDateString}</td>
@@ -709,7 +709,7 @@ const StateGovernment = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {data && data.filter(index => index.state === "Sikkim").map((item, ind) => {
+                            {data && data.filter(index => index.state.replace(/\s+/g,"").toLowerCase().includes("sikkim")).map((item, ind) => {
                                 return (
                                     <tr key={ind}>
                                         <td>{item.postDateString}</td>
@@ -739,7 +739,7 @@ const StateGovernment = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {data && data.filter(index => index.state === "Tamilnadu").map((item, ind) => {
+                            {data && data.filter(index => index.state.replace(/\s+/g,"").toLowerCase().includes("tamilnadu")).map((item, ind) => {
                                 return (
                                     <tr key={ind}>
                                         <td>{item.postDateString}</td>
@@ -769,7 +769,7 @@ const StateGovernment = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {data && data.filter(index => index.state === "Telangana").map((item, ind) => {
+                            {data && data.filter(index => index.state.replace(/\s+/g,"").toLowerCase().includes("telangana")).map((item, ind) => {
                                 return (
                                     <tr key={ind}>
                                         <td>{item.postDateString}</td>
@@ -799,7 +799,7 @@ const StateGovernment = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {data && data.filter(index => index.state === "Tripura").map((item, ind) => {
+                            {data && data.filter(index => index.state.replace(/\s+/g,"").toLowerCase().includes("tripura")).map((item, ind) => {
                                 return (
                                     <tr key={ind}>
                                         <td>{item.postDateString}</td>
@@ -829,7 +829,7 @@ const StateGovernment = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {data && data.filter(index => index.state === "UttarPradesh").map((item, ind) => {
+                            {data && data.filter(index => index.state.replace(/\s+/g,"").toLowerCase().includes("uttarpradesh")).map((item, ind) => {
                                 return (
                                     <tr key={ind}>
                                         <td>{item.postDateString}</td>
@@ -859,7 +859,7 @@ const StateGovernment = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {data && data.filter(index => index.state === "Uttarakhand").map((item, ind) => {
+                            {data && data.filter(index => index.state.replace(/\s+/g,"").toLowerCase().includes("uttarakhand")).map((item, ind) => {
                                 return (
                                     <tr key={ind}>
                                         <td>{item.postDateString}</td>
@@ -889,7 +889,7 @@ const StateGovernment = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {data && data.filter(index => index.state === "WestBengal").map((item, ind) => {
+                            {data && data.filter(index => index.state.replace(/\s+/g,"").toLowerCase().includes("westbengal")).map((item, ind) => {
                                 return (
                                     <tr key={ind}>
                                         <td>{item.postDateString}</td>
